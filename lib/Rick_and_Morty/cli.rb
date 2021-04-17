@@ -12,7 +12,7 @@ class CLI
     end
 
     def greet(name)
-        puts "Right! So, your name is #{name}. #{name}! Would you like to learn more about Shiny Pokemon? Enter y to start search, enter exit to exit:"
+        puts "Greetings #{name}. Clearance granted. Enter y to access the profiler, enter exit to exit:"
         menu
     end
 
@@ -28,23 +28,23 @@ class CLI
     end
 
     def bye
-        puts ""
+        puts "Goodbye"
     end
 
     def invalid
-        puts ""
+        puts "Invalid entry. Please try again"
             menu
     end
 
     def print_character
-        Character.all.each_with_index(1) do |character, index|
-            puts "#{index}. #{character}."
+        Character.all.each.with_index(1) do |character, index|
+            puts "#{index}. #{character.name}."
     end
         select_character
     end
         
     def select_character
-        puts "Please choose your Pokemon."
+        puts "Please choose an individual to profile."
         selection = user_input
         if Character.find_by_selection(selection)
             character = Character.find_by_selection(selection)
@@ -66,7 +66,7 @@ class CLI
             puts "*****************************"
             puts ""
             puts ""
-            puts "Enter y to choose another character or exit to exit:"
+            puts "Enter y to choose another individual or exit to exit:"
         else
             invalid
         end

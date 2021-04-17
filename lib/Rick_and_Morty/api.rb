@@ -5,5 +5,6 @@ class API
     character_array.each do |character|
       Character.new(character)
     #binding.pry
+    end
 end
 end

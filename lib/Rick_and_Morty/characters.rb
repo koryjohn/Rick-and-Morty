@@ -1,5 +1,5 @@
 class Character
-    attr_accessor :id, :name, :location
+    attr_accessor :name, :species, :status
     @@all = []
 
     def initialize(character_hash)
@@ -19,7 +19,7 @@ end
 
     def self.find_by_selection(character_name)
         self.all.detect do |character|
-            character.name == character_name
+           character.name == character_name
         end
     end
 
