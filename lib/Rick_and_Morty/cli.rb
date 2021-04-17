@@ -1,7 +1,7 @@
 class CLI
    
     def start    
-        puts "Hello there! Welcome to the PokemonGo Shiny-Dex. First, what is your name?"
+        puts ""
         #API.get_data
         input = user_input
         greet(input)
@@ -19,7 +19,7 @@ class CLI
     def menu
         selection = user_input
         if selection == "y"
-            print_pokemon
+            print_character
         elsif selection == "exit"
             exit
         else invalid
@@ -28,45 +28,45 @@ class CLI
     end
 
     def bye
-        puts "Good luck on your Pokemon journey!"
+        puts ""
     end
 
     def invalid
-        puts "Something doesn't look right. Please try again."
+        puts ""
             menu
     end
 
-    def print_pokemon
-        Pokemon.all.each_with_index(1) do |pokemon, index|
-            puts "#{index}. #{pokemon}."
+    def print_character
+        Character.all.each_with_index(1) do |character, index|
+            puts "#{index}. #{character}."
     end
-        select_pokemon
+        select_character
     end
         
-    def select_pokemon
+    def select_character
         puts "Please choose your Pokemon."
         selection = user_input
-        if Pokemon.find_by_selection(selection)
-            pokemon = Pokemon.find_by_selection(selection)
+        if Character.find_by_selection(selection)
+            character = Character.find_by_selection(selection)
         else 
-            pokemon = selection
+            character = selection
         end
-            pokemon_details(selection)
+            character_details(selection)
     end
 
-    def pokemon_details(selection)
-        if pokemon == "exit"
+    def character_details(selection)
+        if character == "exit"
             bye
-        elsif pokemon.class == Pokemon
+        elsif character.class == Character
             puts ""
             puts ""
             puts "*****************************"
-            puts "Name: #{pokemon.name}"
-            puts "Location: #{pokemon.location}"
+            puts "Name: #{character.name}"
+            puts "Status: #{character.status}"
             puts "*****************************"
             puts ""
             puts ""
-            puts "Enter y to choose another Pokemon or exit to exit:"
+            puts "Enter y to choose another character or exit to exit:"
         else
             invalid
         end
