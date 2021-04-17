@@ -28,7 +28,7 @@ class CLI
     end
 
     def bye
-        puts "Goodbye"
+        puts "Logout successful. Goodbye"
     end
 
     def invalid
@@ -51,10 +51,10 @@ class CLI
         else 
             character = selection
         end
-            character_details(selection)
+            character_details(character)
     end
 
-    def character_details(selection)
+    def character_details(character)
         if character == "exit"
             bye
         elsif character.class == Character

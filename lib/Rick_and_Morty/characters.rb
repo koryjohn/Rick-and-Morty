@@ -3,8 +3,8 @@ class Character
     @@all = []
 
     def initialize(character_hash)
-        character_hash.each do |key, value|
-            self.send("#{key}=", value) if self.respond_to?("#{key}=")
+        character_hash.each do |keys, value|
+            self.send("#{keys}=", value) if self.respond_to?("#{keys}=")
     end
     save
 end
