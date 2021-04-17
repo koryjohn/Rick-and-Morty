@@ -1,8 +1,8 @@
 class CLI
    
     def start    
-        puts ""
-        #API.get_data
+        puts "Welcome to the Galactic Federation data base. Please state your name:"
+        API.get_data
         input = user_input
         greet(input)
     end

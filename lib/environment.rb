@@ -6,4 +6,4 @@
 require "bundler"
 Bundler.require
 
-require_all './lib/shiny_pokemon'
+require_all './lib/Rick_and_Morty'
