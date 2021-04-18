@@ -1,7 +1,8 @@
 class CLI
    
     def start    
-        puts "Welcome to the Galactic Federation data base. Please state your name:"
+        puts "Welcome to the Galactic Federation data base. Please enter your name:"
+        puts ""
         API.get_ricks
         API.get_mortys
         input = user_input
@@ -13,11 +14,17 @@ class CLI
     end
 
     def greet(name)
-        puts "Greetings #{name}. Clearance granted. Enter y to access the Rick and Morty profiler, enter exit to exit:"
+        puts ""
+        puts "Greetings #{name}. Processing..."
+        puts ""
+        puts "..."
+        puts ""
+        puts "Clearance granted. Enter y to access the Rick and Morty profiler, enter exit to exit:"
         menu
     end
 
     def menu
+        puts ""
         selection = user_input
         if selection == "y"
             rick_or_morty
@@ -29,16 +36,21 @@ class CLI
     end
 
     def bye
+        puts ""
+        puts "..."
         puts "Logout successful. Goodbye"
     end
 
     def invalid
+        puts ""
         puts "Invalid entry. Please try again"
             menu
     end
 
     def rick_or_morty
+        puts ""
         puts "For list of all known Rick's enter r, for list of all known Morty's enter m. To exit enter exit."
+        puts ""
         selection = user_input
         if selection == "r"
             print_ricks
@@ -51,6 +63,9 @@ class CLI
     end
 
     def print_ricks
+        puts ""
+        puts "---------------------------------"
+        puts ""
         Rick.all.each.with_index(1) do |character, index|
             puts "#{index}. #{character.name}."
         end
@@ -58,6 +73,9 @@ class CLI
     end
 
     def print_mortys
+        puts ""
+        puts "---------------------------------"
+        puts ""
         Morty.all.each.with_index(1) do |character, index|
             puts "#{index}. #{character.name}."
         end
@@ -67,6 +85,7 @@ class CLI
     def select_rick
         puts ""
         puts "Please choose a Rick."
+        puts ""
         selection = user_input
         if Rick.find_by_selection(selection)
             character = Rick.find_by_selection(selection)
@@ -79,6 +98,7 @@ class CLI
     def select_morty
         puts ""
         puts "Please choose an Morty."
+        puts ""
         selection = user_input
         if Morty.find_by_selection(selection)
             character = Morty.find_by_selection(selection)
@@ -104,6 +124,7 @@ class CLI
             puts ""
             puts ""
             puts "Enter y to choose another Morty, enter menu to access menu, or enter exit to exit:"
+            puts ""
         else
             invalid
         end
@@ -138,6 +159,7 @@ class CLI
             puts "*****************************"
             puts ""
             puts "Enter y to choose another rick, enter menu to access menu, or enter exit to exit:"
+            puts ""
         else
             invalid
         end
