@@ -39,7 +39,7 @@ class CLI
     def print_character
         Character.all.each.with_index(1) do |character, index|
             puts "#{index}. #{character.name}."
-    end
+        end
         select_character
     end
         
@@ -63,6 +63,9 @@ class CLI
             puts "*****************************"
             puts "Name: #{character.name}"
             puts "Status: #{character.status}"
+            puts "Species: #{character.species}"
+            puts "Gender: #{character.gender}"
+            puts "Image: #{character.image}"
             puts "*****************************"
             puts ""
             puts ""
