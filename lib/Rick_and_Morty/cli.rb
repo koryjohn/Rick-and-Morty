@@ -2,7 +2,8 @@ class CLI
    
     def start    
         puts "Welcome to the Galactic Federation data base. Please state your name:"
-        API.get_data
+        API.get_ricks
+        API.get_mortys
         input = user_input
         greet(input)
     end
@@ -19,7 +20,7 @@ class CLI
     def menu
         selection = user_input
         if selection == "y"
-            print_character
+            rick_or_morty
         elsif selection == "exit"
             exit
         else invalid
@@ -36,28 +37,81 @@ class CLI
             menu
     end
 
-    def print_character
-        Character.all.each.with_index(1) do |character, index|
+    def rick_or_morty
+        puts "For list of all known Rick's enter r, for list of all known Morty's enter m. To exit enter exit."
+        selection = user_input
+        if selection == "r"
+            print_ricks
+        elsif selection == "m"
+            print_mortys
+        elsif selection == "exit"
+            bye
+        else invalid
+        end
+    end
+
+    def print_ricks
+        Rick.all.each.with_index(1) do |character, index|
             puts "#{index}. #{character.name}."
         end
-        select_character
+        select_rick
     end
-        
-    def select_character
-        puts "Please choose an individual to profile."
+       
+    def print_mortys
+        Morty.all.each.with_index(1) do |character, index|
+            puts "#{index}. #{character.name}."
+        end
+        select_morty
+    end
+
+    def select_rick
+        puts "Please choose a Rick."
         selection = user_input
-        if Character.find_by_selection(selection)
-            character = Character.find_by_selection(selection)
+        if Rick.find_by_selection(selection)
+            character = Rick.find_by_selection(selection)
         else 
             character = selection
         end
-            character_details(character)
+            rick_details(character)
     end
 
-    def character_details(character)
+    
+    def select_morty
+        puts "Please choose an Morty."
+        selection = user_input
+        if Morty.find_by_selection(selection)
+            character = Morty.find_by_selection(selection)
+        else 
+            character = selection
+        end
+            morty_details(character)
+    end
+     
+    def morty_details(character)
         if character == "exit"
             bye
-        elsif character.class == Character
+        elsif character.class == Morty
+            puts ""
+            puts ""
+            puts "*****************************"
+            puts "Name: #{character.name}"
+            puts "Status: #{character.status}"
+            puts "Species: #{character.species}"
+            puts "Gender: #{character.gender}"
+            puts "Image: #{character.image}"
+            puts "*****************************"
+            puts ""
+            puts ""
+            puts "Enter y to choose another Morty or exit to exit:"
+        else
+            invalid
+        end
+    end
+
+    def rick_details(character)
+        if character == "exit"
+            bye
+        elsif character.class == Rick
             puts ""
             puts ""
             puts "*****************************"
