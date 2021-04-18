@@ -1,5 +1,6 @@
 class CLI
-   
+   #Add Welcome method
+   #Clean up spacing and line break code
     def start    
         puts "Welcome to the Galactic Federation data base. Please enter your name:"
         puts ""
@@ -12,7 +13,7 @@ class CLI
     def user_input
         gets.strip
     end
-
+#Add pause in greeting and exit
     def greet(name)
         puts ""
         puts "Greetings #{name}. Processing..."
@@ -22,7 +23,7 @@ class CLI
         puts "Clearance granted. Enter y to access the Rick and Morty profiler, enter exit to exit:"
         menu
     end
-
+#See if menu method works in place of extra code
     def menu
         puts ""
         selection = user_input
@@ -43,13 +44,13 @@ class CLI
 
     def invalid
         puts ""
-        puts "Invalid entry. Please try again"
+        puts "Invalid entry. Please try again:"
             menu
     end
 
     def rick_or_morty
         puts ""
-        puts "For list of all known Rick's enter r, for list of all known Morty's enter m. To exit enter exit."
+        puts "For list of all known Rick's enter r, for list of all known Morty's enter m. To exit enter exit:"
         puts ""
         selection = user_input
         if selection == "r"
@@ -84,7 +85,7 @@ class CLI
 
     def select_rick
         puts ""
-        puts "Please choose a Rick."
+        puts "Please choose a Rick:"
         puts ""
         selection = user_input
         if Rick.find_by_selection(selection)
@@ -93,11 +94,12 @@ class CLI
             character = selection
         end
             rick_details(character)
+            #add invaldid/exit input
     end
   
     def select_morty
         puts ""
-        puts "Please choose an Morty."
+        puts "Please choose an Morty:"
         puts ""
         selection = user_input
         if Morty.find_by_selection(selection)
@@ -106,6 +108,7 @@ class CLI
             character = selection
         end
             morty_details(character)
+            #add invalid/exit input
     end
      
     def morty_details(character)
