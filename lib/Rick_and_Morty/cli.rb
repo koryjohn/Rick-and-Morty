@@ -13,7 +13,7 @@ class CLI
     end
 
     def greet(name)
-        puts "Greetings #{name}. Clearance granted. Enter y to access the profiler, enter exit to exit:"
+        puts "Greetings #{name}. Clearance granted. Enter y to access the Rick and Morty profiler, enter exit to exit:"
         menu
     end
 
@@ -56,7 +56,7 @@ class CLI
         end
         select_rick
     end
-       
+
     def print_mortys
         Morty.all.each.with_index(1) do |character, index|
             puts "#{index}. #{character.name}."
@@ -65,6 +65,7 @@ class CLI
     end
 
     def select_rick
+        puts ""
         puts "Please choose a Rick."
         selection = user_input
         if Rick.find_by_selection(selection)
@@ -74,9 +75,9 @@ class CLI
         end
             rick_details(character)
     end
-
-    
+  
     def select_morty
+        puts ""
         puts "Please choose an Morty."
         selection = user_input
         if Morty.find_by_selection(selection)
@@ -102,8 +103,18 @@ class CLI
             puts "*****************************"
             puts ""
             puts ""
-            puts "Enter y to choose another Morty or exit to exit:"
+            puts "Enter y to choose another Morty, enter menu to access menu, or enter exit to exit:"
         else
+            invalid
+        end
+        selection = user_input
+        if selection == "y"
+            print_mortys
+        elsif selection == "exit"
+            bye
+        elsif selection == "menu"
+            rick_or_morty
+        else 
             invalid
         end
     end
@@ -122,9 +133,22 @@ class CLI
             puts "Image: #{character.image}"
             puts "*****************************"
             puts ""
+            puts "Wubba lubba dub dub!"
             puts ""
-            puts "Enter y to choose another individual or exit to exit:"
+            puts "*****************************"
+            puts ""
+            puts "Enter y to choose another rick, enter menu to access menu, or enter exit to exit:"
         else
+            invalid
+        end
+        selection = user_input
+        if selection == "y"
+            print_ricks
+        elsif selection == "exit"
+            bye
+        elsif selection == "menu"
+            rick_or_morty
+        else 
             invalid
         end
     end
