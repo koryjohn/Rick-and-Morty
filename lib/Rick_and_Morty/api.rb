@@ -3,8 +3,7 @@ class API
     response = RestClient.get("https://rickandmortyapi.com/api/character/?name=rick")
     character_array = JSON.parse(response)["results"]
     character_array.each do |character|
-      Rick.new(character)
-    #binding.pry
+      Rick.new(character) 
     end
 end
 
@@ -13,7 +12,6 @@ end
     character_array = JSON.parse(response)["results"]
     character_array.each do |character|
       Morty.new(character)
-    #binding.pry
     end
 end
 end

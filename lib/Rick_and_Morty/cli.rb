@@ -1,6 +1,5 @@
 class CLI
-   #Add Welcome method
-   #Clean up spacing and line break code
+  
     def start    
         puts "Welcome to the Galactic Federation data base. Please enter your name:"
         puts ""
@@ -13,7 +12,7 @@ class CLI
     def user_input
         gets.strip
     end
-#Add pause in greeting and exit
+
     def greet(name)
         puts ""
         puts "Greetings #{name}. Processing..."
@@ -134,8 +133,7 @@ class CLI
             invalid
             select_morty
         end
-            menu
-        
+            menu      
     end
 
     def rick_details(character)
