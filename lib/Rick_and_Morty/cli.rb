@@ -30,7 +30,7 @@ class CLI
         if selection == "y"
             rick_or_morty
         elsif selection == "exit"
-            exit
+            bye
         else invalid
             menu
         end
@@ -132,6 +132,7 @@ class CLI
             puts ""
         else
             invalid
+            select_morty
         end
             menu
         
@@ -159,7 +160,7 @@ class CLI
             puts ""
         else
             invalid
-            print_ricks
+            select_rick
         end
             menu
     end
