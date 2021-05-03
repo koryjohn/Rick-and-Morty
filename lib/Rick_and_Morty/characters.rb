@@ -1,5 +1,5 @@
 class Rick
-    attr_accessor :name, :species, :status, :gender, :image
+    self.attr_accessor(:name, :species, :status, :gender, :image)
     @@all = []
 
     def initialize(character_hash)

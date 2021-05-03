@@ -93,6 +93,8 @@ class CLI
         selection = user_input
         if Rick.find_by_selection(selection)
             character = Rick.find_by_selection(selection)
+        elsif  (1..Rick.all.size).include?(selection.to_i)
+            character = Rick.all[selection.to_i-1]
         else 
             character = selection
         end
